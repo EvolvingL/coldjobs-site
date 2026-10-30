@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ColdJobs | The anti-digital marketing agency for UK MSPs and cyber firms</title>
-<meta name="description" content="ColdJobs is the anti-digital marketing agency, based in London. Technically fluent people phone UK IT and security decision-makers and book qualified meetings for MSPs and cybersecurity consultancies. £250 per held meeting.">
+<meta name="description" content="ColdJobs is the anti-digital marketing agency, based in London, working exclusively with IT MSPs and cybersecurity firms. Technically fluent people phone UK IT and security decision-makers and book qualified meetings for MSPs and cybersecurity consultancies. £250 per held meeting.">
 <meta name="theme-color" content="#0f0f0e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,13 +124,34 @@
   .cn-foot { font-family: var(--mono); font-size: .66rem; color: #77746d; margin-top: 10px; letter-spacing: .04em; }
 
   /* Marquee */
-  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 22px 0; overflow: hidden; display: flex; align-items: center; gap: 32px; }
-  .marquee .label { flex: none; padding-left: var(--gutter); }
-  .mq-mask { overflow: hidden; flex: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-  .mq-track { display: flex; width: max-content; animation: scroll 38s linear infinite; }
-  .mq-track span { font-size: clamp(1.3rem, 2.4vw, 1.9rem); letter-spacing: -0.03em; white-space: nowrap; padding: 0 22px; display: inline-flex; align-items: center; gap: 44px; }
-  .mq-track span::after { content: "✳"; color: var(--signal); font-size: .7em; }
-  @keyframes scroll { to { transform: translateX(-50%); } }
+  /* Exclusively-for band */
+  .only { background: var(--ink); color: var(--on); padding: clamp(64px, 9vw, 112px) 0; }
+  .only-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: end; }
+  .only .label { color: var(--on-muted); }
+  .only-h { font-size: clamp(2.1rem, 5.6vw, 5rem); letter-spacing: -0.05em; line-height: 1.05; margin: 24px 0 0; }
+  .rot { display: block; height: 1.15em; overflow: hidden; }
+  .rot-list { display: block; animation: rot 12s var(--ease) infinite; }
+  .rot-list span { display: block; height: 1.15em; line-height: 1.15em; white-space: nowrap; font-family: var(--serif); font-style: italic; color: var(--signal); letter-spacing: -0.02em; }
+  @keyframes rot {
+    0%, 21% { transform: translateY(0); }
+    25%, 46% { transform: translateY(-1.15em); }
+    50%, 71% { transform: translateY(-2.3em); }
+    75%, 96% { transform: translateY(-3.45em); }
+    100% { transform: translateY(-4.6em); }
+  }
+  .rot-bar { height: 2px; background: var(--on-line); margin-top: 22px; max-width: 520px; overflow: hidden; }
+  .rot-bar i { display: block; height: 100%; background: var(--signal); transform-origin: left; animation: rotbar 3s linear infinite; }
+  @keyframes rotbar { 0% { transform: scaleX(0); } 84% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+  .only-side p { color: var(--on-muted); font-size: 1.05rem; margin: 0 0 24px; max-width: 44ch; }
+  .only-tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .only-tags li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: .88rem; border: 1px solid var(--on-line); }
+  .only-tags .yes { color: var(--on); border-color: rgba(255, 79, 31, .5); }
+  .only-tags .yes::before { content: "✓"; color: var(--signal); }
+  .only-tags .no { color: #77746d; text-decoration: none; }
+  .only-tags .no::before { content: "×"; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .only-pill { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; font-weight: 500; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--signal-deep); color: var(--text); }
+  .only-pill::before { content: "✓"; color: var(--signal-deep); }
 
   /* Sections */
   section { padding: clamp(88px, 12vw, 160px) 0; position: relative; }
@@ -407,7 +428,7 @@
     .stat:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--line); }
     .chart-card, .faq-grid .s-head { position: static; }
     .terms-list { grid-template-columns: 1fr; }
-    .marquee .label { display: none; }
+    .only-grid { grid-template-columns: 1fr; align-items: start; }
     .dial-row { grid-template-columns: 1fr 70px; gap: 8px 16px; }
     .dial-row .who { grid-column: 1 / -1; }
   }
@@ -416,7 +437,6 @@
     .nav .wrap { height: 64px; }
     .nav .btn { padding: 10px 14px; font-size: .84rem; }
     .nav .btn .arrow { display: none; }
-    .hero-top .loc { display: none; }
     .steps, .price-grid, .principles, .fix-grid, .field-row { grid-template-columns: 1fr; }
     .principle, .principle + .principle { padding: 24px 0 0; border-left: 0; margin-top: 24px; }
     .principle:first-child { margin-top: 0; }
@@ -457,13 +477,13 @@
   <div class="wrap">
     <div class="hero-top rv">
       <span class="label">The anti-digital marketing agency</span>
-      <span class="loc">London · Outbound for UK MSPs &amp; cyber firms</span>
+      <span class="only-pill">Exclusively for IT MSPs &amp; cybersecurity firms</span>
     </div>
     <h1 class="rv" style="--d:.08s">Real people.<br>Real phone calls.<br><em>A steady pipeline.</em></h1>
 
     <div class="hero-grid">
       <div class="rv" style="--d:.2s">
-        <p class="lede">Your prospects are tired of AI-written emails, automated LinkedIn messages and ad retargeting. ColdJobs is different: technically fluent callers phone the people who sign off IT and security spend, and book meetings into your calendar every month, even when you're too busy to sell.</p>
+        <p class="lede">Your prospects are tired of AI-written emails, automated LinkedIn messages and ad retargeting. ColdJobs works exclusively with UK IT MSPs and cybersecurity firms. Our technically fluent callers phone the people who sign off IT and security spend, and book meetings into your calendar every month, even when you're too busy to sell.</p>
         <div class="hero-ctas">
           <a href="#book" class="btn btn-signal">Book a free 20-minute strategy call <span class="arrow" aria-hidden="true">→</span></a>
           <a href="#philosophy" class="btn btn-line">Why phone first?</a>
@@ -489,16 +509,33 @@
   </div>
 </header>
 
-<!-- WHO WE CALL -->
-<div class="marquee" aria-label="Who we speak to">
-  <span class="label">We speak to</span>
-  <div class="mq-mask">
-    <div class="mq-track" aria-hidden="true">
-      <span>CIOs</span><span>CTOs</span><span>CISOs</span><span>IT Directors</span><span>Heads of IT</span><span>Managing Directors</span><span>Finance Directors</span><span>Procurement Directors</span>
-      <span>CIOs</span><span>CTOs</span><span>CISOs</span><span>IT Directors</span><span>Heads of IT</span><span>Managing Directors</span><span>Finance Directors</span><span>Procurement Directors</span>
+<!-- EXCLUSIVELY FOR -->
+<section class="only" aria-label="Built exclusively for IT MSPs and cybersecurity firms">
+  <div class="wrap only-grid">
+    <div>
+      <span class="label">Who we work with</span>
+      <p class="only-h">Built exclusively for
+        <span class="rot" aria-hidden="true"><span class="rot-list">
+          <span>IT MSPs.</span>
+          <span>cybersecurity firms.</span>
+          <span>MSSPs &amp; SOCs.</span>
+          <span>IT support providers.</span>
+          <span>IT MSPs.</span>
+        </span></span>
+        <span class="sr">IT managed service providers and cybersecurity firms.</span>
+      </p>
+      <div class="rot-bar" aria-hidden="true"><i></i></div>
+    </div>
+    <div class="only-side">
+      <p>We don't take on clients outside IT services and cyber security. Every script, lead list and caller is built around how managed IT and security services are actually bought.</p>
+      <ul class="only-tags">
+        <li class="yes">IT managed service providers</li>
+        <li class="yes">Cybersecurity consultancies</li>
+        <li class="no">Everyone else</li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
 
 <!-- STATS -->
 <section style="padding-bottom:0">
